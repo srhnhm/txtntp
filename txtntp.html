@@ -1,0 +1,59 @@
+<html>
+<head>
+	<title>txtntp</title>
+
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<script src="jquery.min.js"></script>
+
+
+</head>
+
+<body>
+
+	<div id="wrapper">
+		<textarea id="maintext" style="opacity:0"></textarea>
+		<ul id="sidebar" style="opacity:0" >
+
+			<li class="option" >
+				<header class="title">Email</header>
+				<div class="addl">
+					<form class="text-accent">
+					<label>To: </label><input id='mail-to'></input><br/>
+					<label>Subject: </label><input id='mail-subject'></input>
+				</form>
+				<button class="actions text-accent" id="mail">Send</button>
+				<div class="status"></div>
+				</div>
+			</li>
+
+
+			<li class="option" >
+				<header class="title">Document</header>
+				<div class="addl">
+					<form class="text-accent">
+					<label>Title: </label><input id='doc-title'></input>
+				</form>
+				<button class="actions text-accent" id="doc">Create</button>
+				<div class="status"></div>
+				</div>
+			</li>
+			
+
+			<li class="option mono" >
+				<header class="title">Gist</header>
+				<div class="addl">
+					<form class="text-accent">
+						<input type="checkbox" class='checkbox' id="public">Public</input>
+					</form>
+					<button class="actions text-accent" id="gist">not yet working</button>
+					<div class="status"></div>
+				</div>
+
+			</li>
+		</ul>
+
+
+	</div>
+	<script src="behaviors.js"></script>
+</body>
+</html>
