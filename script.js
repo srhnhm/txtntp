@@ -8,7 +8,7 @@ $(document).ready(function() {
 		click: function(){
 			if (firstclick == false) {
 				$('#main').css('opacity', 1);
-				$('#main').focus();
+				$('#main').focus(); 
 				firstclick = true;
 			} else {}
 		}

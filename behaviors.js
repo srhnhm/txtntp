@@ -121,6 +121,44 @@ $(document).ready(function() {
 		}
 	});
 
+  $('#gist').on({
+    click: function() {
+      var token = githubAuth.getAccessToken();
+      console.log("token!", token);
+      //TODO: check for token
+      //and do appropriate logic
+
+    }
+  });
+  
+
+
+  //login stuff
+  //using excellent lib from here: http://smus.com/oauth2-chrome-extensions/
+  //https://github.com/borismus/oauth2-extensions
+
+  /*
+  var googleAuth = new OAuth2('google', {
+    client_id: '',
+    client_secret: '',
+    api_scope: 'https://www.googleapis.com/auth/tasks'
+  });
+  */
+
+  var githubAuth = new OAuth2('github', {
+    client_id: '5889bee02b7ec7f46084',
+    client_secret: '448de7256296cf61d08d786e487d6f2adda9550b',
+  });
+
+  $('#github_login').on({
+    click: function() {
+      githubAuth.authorize(function() {
+        // Ready for action, can now make requests with
+        var token = githubAuth.getAccessToken();
+        console.log("token", token);
+      });
+    }
+  });
 
 
 	

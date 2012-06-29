@@ -9,6 +9,15 @@
   }, 
   "background": {
     "page": "background.html"
-  }
+  },
+  "content_scripts": [
+  {
+    "matches": ["https://github.com/robots.txt*"],
+    "js": ["oauth2/oauth2_inject.js"],
+    "run_at": "document_start"
+  }],
+  "permissions": [
+    "https://github.com/login/oauth/access_token"
+  ]
 
 }
