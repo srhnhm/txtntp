@@ -4,8 +4,6 @@
 
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	<script src="jquery.min.js"></script>
-    <script src="/oauth2/oauth2.js"></script>
-
 
 </head>
 
@@ -18,7 +16,9 @@
 			<li class="option" >
 				<header class="title">Email</header>
 				<div class="addl">
-					<form class="text-accent">
+          <a href="http://localhost:8000/auth/google">login</a>
+          <button id="gmail-login" class="actions text-accent">Login</button>
+				<form class="text-accent">
 					<label>To: </label><input id='mail-to'></input><br/>
 					<label>Subject: </label><input id='mail-subject'></input>
 				</form>
@@ -38,7 +38,6 @@
 				<div class="status"></div>
 				</div>
 			</li>
-			
 
 			<li class="option mono" >
 				<header class="title">Gist</header>
