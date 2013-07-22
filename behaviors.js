@@ -1,9 +1,9 @@
 $(document).ready(function() {
 
-
 	//catching the first click and revealing textarea and sidebar
-	
 	var firstclick = false;
+  console.log("LS:", localStorage.getItem("test"))
+  console.log("LOCATION", location)
 
 	$(window).on({
 		click: function(){
@@ -35,9 +35,9 @@ $(document).ready(function() {
 	var bgHighlight = '#FFFFFF';
 	var bgSelected = '#F3F4F6';
 	var slidespeed = 200;
-	
-	$('.option').on({ 
-		click: function(){	
+
+	$('.option').on({
+		click: function(){
 			var thisOption = $(this);
 			var thisAddl = thisOption.children('.addl')
 			var thisTitle = thisOption.children('.title')
@@ -52,7 +52,6 @@ $(document).ready(function() {
 				// resets all the (other) list items
 				$('.title').css('color', textNormal);
 				$('.addl').slideUp(slidespeed);
-				
 				// features the clicked list item
 				thisAddl.slideDown(slidespeed);
 				thisOption.css('background-color', bgSelected);
@@ -74,25 +73,35 @@ $(document).ready(function() {
 			thisTitle.css('background-color', 'transparent')
 	    }
 	});
-	
 
 
 	//scripts to send the text to various services
 
+  $('#gmail-login').on({
+		click: function(){
+			//var statusupdate = $(this).siblings('.status')
+			//$(statusupdate).html('Sending...')
+			$.ajax({
+        url: "http://localhost:8000/auth/google",
+				type: "GET",
+				success: function() {
+					$(statusupdate).html('Logged in.')
+				}
+			});
+		}
+	});
 	$('#mail').on({
 		click: function(){
 			var statusupdate = $(this).siblings('.status')
 			$(statusupdate).html('Sending...')
 			$.ajax({
-				url: "server/pyscript.py",
+        url: "http://localhost:8000/gmail",
 				data: {
-					action : "mail",
 					recipient : $("#mail-to").val(),
-					subject : $("#mail-subject").val(), 
-					body : $("#maintext").val()  
+					subject : $("#mail-subject").val(),
+					body : $("#maintext").val()
 				},
-				type: "GET",
-				dataType: "script",
+				type: "POST",
 				success: function() {
 					$(statusupdate).html('Your email was sent.')
 				}
@@ -121,6 +130,46 @@ $(document).ready(function() {
 		}
 	});
 
+  $('#gist').on({
+    click: function() {
+      var token = githubAuth.getAccessToken();
+      console.log("token!", token);
+      //TODO: check for token
+      //and do appropriate logic
+
+    }
+  });
+  
+
+
+  //login stuff
+  //using excellent lib from here: http://smus.com/oauth2-chrome-extensions/
+  //https://github.com/borismus/oauth2-extensions
+
+  /*
+  var googleAuth = new OAuth2('google', {
+    client_id: '',
+    client_secret: '',
+    api_scope: 'https://www.googleapis.com/auth/tasks'
+  });
+  */
+
+  /*
+  var githubAuth = new OAuth2('github', {
+    client_id: '5889bee02b7ec7f46084',
+    client_secret: '448de7256296cf61d08d786e487d6f2adda9550b',
+  });
+
+  $('#github_login').on({
+    click: function() {
+      githubAuth.authorize(function() {
+        // Ready for action, can now make requests with
+        var token = githubAuth.getAccessToken();
+        console.log("token", token);
+      });
+    }
+  });
+  */
 
 
 	
