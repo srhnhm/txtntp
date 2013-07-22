@@ -5,7 +5,6 @@
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	<script src="jquery.min.js"></script>
 
-
 </head>
 
 <body>
@@ -17,7 +16,9 @@
 			<li class="option" >
 				<header class="title">Email</header>
 				<div class="addl">
-					<form class="text-accent">
+          <a href="http://localhost:8000/auth/google">login</a>
+          <button id="gmail-login" class="actions text-accent">Login</button>
+				<form class="text-accent">
 					<label>To: </label><input id='mail-to'></input><br/>
 					<label>Subject: </label><input id='mail-subject'></input>
 				</form>
@@ -37,7 +38,6 @@
 				<div class="status"></div>
 				</div>
 			</li>
-			
 
 			<li class="option mono" >
 				<header class="title">Gist</header>
@@ -45,6 +45,7 @@
 					<form class="text-accent">
 						<input type="checkbox" class='checkbox' id="public">Public</input>
 					</form>
+					<button class="actions text-accent" id="github_login">login</button>
 					<button class="actions text-accent" id="gist">not yet working</button>
 					<div class="status"></div>
 				</div>
